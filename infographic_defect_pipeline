@@ -1,0 +1,39 @@
+// Infographic Defect Detection Pipeline
+digraph {
+	A [label="🗄️ Data Loading
+(MVTecDataset)
+train/test split" fillcolor=lightblue style=filled]
+	B [label="🖼️ Data Preprocessing
+Resize, Normalize, ToTensor" fillcolor=lightblue style=filled]
+	C [label="⚙️ Model Definition
+Autoencoder
+(encoder + decoder)" fillcolor=plum style=filled]
+	D [label="⚙️ Training Loop
+- Loss: MSE + (1 - SSIM)
+- Optimizer: Adam
+- Compute AUROC" fillcolor=plum style=filled]
+	H [label="☁️ FastAPI Deployment
+- Load ONNX
+- /detect endpoint
+- Drift Detection
+- Returns defect prediction" fillcolor=plum style=filled]
+	E [label="📦 Save Best Model
+(autoencoder_best.pth)" fillcolor=lightpink style=filled]
+	F [label="📦 Compute Threshold
+(threshold.npy)" fillcolor=lightpink style=filled]
+	G [label="📦 Export ONNX Model
+(autoencoder.onnx)" fillcolor=lightpink style=filled]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+	E -> F
+	F -> G
+	G -> H
+	I [label="Legend:
+🗄️ Blue: Data
+⚙️ Purple: Code/Model
+📦 Pink: Artifacts
+☁️ Purple: Deployment" shape=note]
+	A -> I [style=dashed]
+}

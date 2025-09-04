@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+onnxruntime
+numpy
+pandas
+opencv-python-headless
+evidently
+
+python-multipart

@@ -1,0 +1,25 @@
+# Python virtual environment
+venv/
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Training artifacts
+*.pth
+*.pt
+*.npy
+logs/
+checkpoints/
+
+# Datasets (if any)
+data/
+datasets/
+bottle/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+*.swp
